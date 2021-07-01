@@ -1,0 +1,798 @@
+/* GLOBAL: dùng chung */
+/* dấu * gọi tất cả ra luôn */
+*{
+ /* 3 thành phần dùng để xóa khoảng cách của trình duyệt */
+margin:0px;
+padding: 0px;
+box-sizing: border-box;
+}
+html,body{
+    font-family: 'Montserrat', sans-serif;
+}
+html{
+ /* khai báo theo thẻ html thôi còn các thẻ khác k khai báo được */
+/* rem thường dùng với font-size,margin và padding */
+font-size: 18px;
+/* nếu không khai báo 1rem=16px */
+/* font-size: 2.056rem; */
+
+}
+/* HEADER */
+header{
+    background-color:#4e2a84;
+    padding:20px 0 ;
+    height: 100px;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+
+}
+.header_content{
+    /* auto:căn giữa(theo chiều ngang) nội dung lớn của website - cách bên trái 15% và bên phải 15% */
+    width: 70%;
+    margin: 0 auto;
+    /* position: fixed; */
+    display: flex;
+    /* thêm khoảng cách (trái, phải) cho các thẻ con */
+    justify-content: space-around;
+    /* căn thẻ con ở giữa theo chiều dọc */
+    align-items: center;
+    
+}
+.header_content ul{
+/* Xóa chấm tròn */
+list-style: none; 
+/* scroll-behavior: smooth; */
+}
+.header_content .navbar-nav .nav-item .nav-link{
+    color: #ff0e83;
+}
+
+.header_content a{
+    /* bỏ dấu gạch dưới */
+    text-decoration: none;
+    color: white;  
+}
+
+.header_content li a:hover{
+        color: #ff0e83;
+     }
+.header_content ul li{
+    /* gọi trên cùng 1 hàng duy nhất */
+    display: inline;
+    margin: 0 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.header_content h1{
+color: #fff;
+font-size: 37px;
+text-transform: uppercase;
+font-weight: 400;
+/* font-size: 2.3125rem; */
+}
+
+/* CAROUSEL */
+.carousel{
+    background-image: url(../img/b3.jpg);
+    height: 800px;
+    background-size: cover;
+    background-position: center;
+    /* cách căn giữa chỉ áp dụng khi flex có 1 thẻ con */
+    /* 1 con thì ở trung tâm luôn */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carousel_content{
+    color: white;
+    text-align: center;
+    
+}
+.carousel_content h1{
+    font-size: 3.2em;
+    /* 1:tên 2:thời gan xảy ra 3:linear:chuyển động đều 4:chờ bn giây 5: lặp lại bn lần -dùng :infinite để khi rớt mạng cũng xài dc*/
+    animation: upDown 1s linear 0s infinite ;
+}
+.carousel_content p{
+    font-size: 17px;
+    padding: 23px 0px;
+    color: #e0e0e0;
+}
+.carousel button{
+    height: 50px;
+    width: 150px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+    display: inline-block;
+    background-color: #ff0e83;
+    border: 1px solid #fff;
+    outline: none;
+    font-weight: 500;
+    border-radius: 5px;
+}
+.carousel button:hover{
+    background-color: #fff;
+    color:black;
+    border: 1px solid #ff0e83;
+}
+.intro{
+    /* nằm ở thẻ cha- khai báo cho web biết trc thì mới biết đúng hay k */
+    /* khai báo bao nhiêu hàng và cột */
+    /* thiết kế cao thì nên khai báo theo hàng */
+    display: grid;
+    /* Khai báo cột cho grid_ nếu grid chỉ có các con gom theo cột thì chỉ cần khai báo cột.
+    Nếu grid  chỉ có các con gom theo hàng thì khai báo theo hàng
+    chỉ có tác dụng khi dùng chung vs display: grid */
+    grid-template-columns:25% 25% 25% 25% ;
+/* nếu cột bằng nhau có bn cột và kích thước bn:25% */
+    /* grid-template-columns: repeat(4,25%); */
+    /* fr: phân số, chỉ dùng với grid */
+    /* mỗi cột có kích thước bằng nhau nên dùng 1/4 */
+    /* grid-template-columns: repeat(4,1fr); */
+
+}
+.text_tradition{
+    text-align: center;
+    padding: 150px 20px;
+    background:  #4e2a84;
+    color: #fff;
+}
+.text_tradition .intro_text  p{
+    font-size: 17px;
+    color: #c1c1c1;
+    line-height: 29px;
+}
+.text_tradition .intro_text  h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+}
+.intro_ab1{
+    /*Cách 1: xác định đường bắt đầu:2 và đường kết thúc */
+  /* grid-column: 2 / 4; */
+    /* C2: Xác định đường bắt đầu và xác định số lượng cột cần chiếm */
+    grid-column:2 / span 2 ;
+    text-align: center;
+}
+.text_creativity{
+    text-align: center;
+    padding: 150px 20px;
+    background:  #ff0e83;
+    color: #fff;
+}
+.text_creativity .intro_text  p{
+    font-size: 17px;
+    color: #c1c1c1;
+    line-height: 29px;
+}
+
+.text_creativity .intro_text  h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+}
+
+.intro_bake{
+    /* grid-column: 1 / 3; */
+    grid-column: 1/ span 2;
+
+    text-align: center;
+    padding: 150px 20px;
+    background:  #e83e8c;;
+    color: #fff;
+}
+.intro_bake .intro_text  p{
+    font-size: 17px;
+    color: #c1c1c1;
+    line-height: 29px;
+}
+
+.intro_bake .intro_text  h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+}
+.text_quality{
+    text-align: center;
+    padding: 150px 20px;
+    background:  #836eaa;
+    color: #fff;
+}
+.text_quality .intro_text  p{
+    font-size: 17px;
+    color: #c1c1c1;
+    line-height: 29px;
+}
+
+.text_quality .intro_text  h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+}
+
+.text_tasty{
+    text-align: center;
+    padding: 150px 20px;
+    background: #4e2a84;
+    color: #fff;
+}
+.text_tasty .intro_text  p{
+    font-size: 17px;
+    color: #c1c1c1;
+    line-height: 29px;
+}
+
+.text_tasty .intro_text  h3{
+    font-weight: 600;
+    font-size: 24px;
+    color: #fff;
+}
+.intro_ab4{
+    /* grid-column: 3 /5; */
+    grid-column: 3 / span 2;
+}
+.intro_item img{
+    width: 100%;
+    height: 100%;
+    /* không cho có khoảng hở - */
+    display: block;
+}
+/* Dùng margin:auto, padding, hoặc text_align để canh chữ */
+
+/* NUMBER */
+.number{
+    /* tăng chiều cao của section */
+    padding: 70px 0;
+    
+}
+.number_content{
+width: 70%;
+margin:0 auto ;
+display: flex;
+/* them khoang cach trai phai nhieu ti */
+justify-content:space-around ;
+text-align: center;
+}
+/* cho chữ hết run theo với số */
+.number_item {
+    width: 25%;
+}
+/* sửa code từ bên style qua html */
+/* lấy thẻ p đầu tiên của class item */
+.number_item p:first-child{
+    color:#4e2a84;
+    font-size: 32px;
+    font-weight: 600;
+}
+/* gọi theo thứ tự con số */
+/* p:nth-child(2)- lấy thứ tự thứ 1,2,3 */
+.number_item p:last-child{
+    font-size: 20px;
+    font-weight: bold;
+}
+/* kéo xuống chạy hiệu ứng dùng on scroll */
+/* chuyển đổi về min cho nhẹ nhàng, file min cho web đọc,
+ giữ lại file cũ nếu có lỗi thì sửa rồi chuyển đổi về min tiếp */
+/* SERVICE */
+.services{
+    background-image: url(../img/s1.jpg);
+    height: 580px;
+    background-size: cover;
+    background-position: center;
+    /* justify-content: center; 
+    align-items: center; */
+}
+.services h2{
+    text-align: center;
+    padding: 70px 0;
+    color: #fff;
+    font-size: 48px;
+  
+}
+.service_content{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+/* chưa rê chuột */
+.service_item{
+    padding:0 20px;
+   
+}
+.service_item i{
+    font-size: 3rem;
+    color: #4e2a84;
+    border: 1px solid #4e2a84;
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    /* căn icon ở giữa theo chiều dọc cho giá trị bằng hoặc gần bằng theo chiều cao */
+    line-height: 100px;
+    /* text-align: center: căn giữa icon theo chiều ngang; */
+    border-radius: 50%;
+
+ /* thuộc tính thay đổi chậm */
+    transition-property: color;
+/*  khoảng thời gian thay đổi giá trị*/
+/* càng chậm thì tăng dần số giây lên, 0s thì xảy ra lập tức */
+/* tốc độ của thay đổi, số giây lớn sẽ thay đổi  */
+/* 1000ms=1s */
+transition-duration: 0.5s;
+/* bắt người ta chờ */
+transition-delay:0s ;
+/* rê chuột */
+/* transition:all 0.5s; */
+transition:all 1s;
+}
+.service_item:hover i{
+    color: #ff0e83;
+}
+
+.service_item h3{
+    font-size: 23px;
+    /* giãn khoảng cách chữ */
+    letter-spacing: 2px;
+    margin: 14px 0px;
+}
+.service_item p{
+    line-height: 25px;
+    color: #000;
+    padding-bottom: 12px;
+    font-size: 15px;
+}
+/* chưa rê chuột */
+.service_item button{
+    font-size: 14px;
+    color: #fff;
+    background-color: #ff0e83;
+    /* thiết kế cho nút thì padding cần 2 con số */
+    padding: 12px 27px;
+    border-radius: 5px;
+    display: inline-block;
+    border: 2px solid #fff;
+    /* xuất hiện dấu bàn tay */
+    cursor: pointer;
+    /* hiệu ứng rê chuột */
+    transition:all 1s;
+}
+/* rê chuột- nằm bên dưới thằng rê chuột */
+.service_item button:hover{
+    background-color: #fff;
+    color:black;
+    /* chỉ cần đổi màu */
+    border-color:#ff0e83;
+}
+/* GALLERY */
+.gallery{
+    padding: 30px 0;
+    width: 100%;
+    height: 100%;
+}
+.gallery h2{
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: 2px;
+    padding: 40px 0;
+}
+.gallery_content{
+display: grid;
+padding: 15px;
+/* grid-template-columns:25% 25% 25% 25% ; */
+/* nếu cột bằng nhau có bn cột và kích thước bn:25% */
+    
+    /* grid-template-columns: repeat(4,25%); */
+    
+    /* fr: phân số, chỉ dùng với grid */
+    /* mỗi cột có kích thước bằng nhau nên dùng 1/4 */
+    grid-template-columns: repeat(4,1fr);
+    /* cách đều các mặt tiếp xúc */
+    gap: 25px;
+    /* grid-gap: ; */
+}   
+.gallery_1{
+    /* theo vị trí */
+    /* grid-column: 1/3; */
+    /* chiếm 2 cột */
+    grid-column: 1 / span 2 ;
+    /* text-align: center; */
+}
+.gallery_6{
+    /* grid-column: 3/5;; */
+    /* chiếm theo cột */
+    grid-column: 3 / span 2;
+
+}
+.gallery_item img{
+    width: 100%;
+    height: 100%;
+    /* không cho có khoảng hở - */
+    display: block;
+}
+/* #3085a3 */
+.gallery_item{
+position:relative;
+}
+.gallery_overlay{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(48, 132, 163, 0.2) ;
+    text-align: right;
+    /* trên dưới 40, trái phải 30 */
+    padding: 40px 30px;
+    color: white;
+}   
+.gallery_overlay p{
+   position: absolute;
+   right: 30px;
+   bottom: 40px;
+   transform:translateY(70px);
+   /* ẩn hiện */
+   opacity: 0;
+}
+
+/*  */
+.gallery_overlay:hover p{
+    /* vị trí đã hover */
+    transform:translateY(0);
+    /* di chuyển cho mượt */
+    transition:all 0.5s ;
+    /* ẩn hiện */
+    opacity: 1;
+}
+/* .gallery_overlay h3::before{
+    content: 'The ';
+}
+.gallery_overlay h3::after{
+    content: ' ! ';
+} */
+.gallery_overlay h3::after{
+    content: '';
+    width: 100%;
+    height: 3px;
+    /* để xét đc kích thước cho after và before  */
+    display: block;
+    background-color: white;
+    margin-top: 15px;
+
+    /* vị trí ban đầu- dùng ẩn hiện */
+    transform:translateY(50px);
+    opacity: 0;
+    transition: all 0.5s;
+} 
+/* di chuyển từ dưới lên */
+.gallery_overlay:hover h3::after{
+    transform:translateY(0);
+    /* ẩn hiện dùng opacity */
+    opacity: 1;
+    transition:all 0.5s ;
+   }
+/* vị trí chưa hover */
+.gallery_overlay h3{
+    transform:translateY(50px);
+
+}
+.gallery_overlay:hover h3{
+    /* vị trí đã hover */
+    transform:translateY(0);
+    /* di chuyển cho mượt */
+    transition:all 0.5s ;
+}   
+ /*TEAM  */
+ .team{
+     background-color: #4e2a84;
+    padding: 40px 0;
+ }
+ .team h2{
+    padding: 37px 0;
+    text-align: center;
+    color: white;
+    font-size: 48px;
+    letter-spacing: 2px;
+ }
+.team_content{
+    display: grid;
+   
+/* grid-template-columns:25% 25% 25% 25% ; */
+/* nếu cột bằng nhau có bn cột và kích thước bn:25% */
+    
+    /* grid-template-columns: repeat(4,25%); */
+    
+    /* fr: phân số, chỉ dùng với grid */
+    /*Chia cột- mỗi cột có kích thước bằng nhau nên dùng 1/4 */
+    grid-template-columns: repeat(3,1fr);
+    /* cách đều các mặt tiếp xúc */
+    gap: 20px 25px;
+    width: 80%;
+    margin: 0 auto;
+}
+.team_item img{
+    width: 100%;
+    height: 100%;
+    /* xóa khoảng hở của trình duyệt */
+    display: block;
+}
+
+.team_socials ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+.team_socials ul li{
+    display: inline-block;
+   
+}
+.team_socials ul li a span {
+    font-size: 15px;
+    border: 1px solid;
+    letter-spacing: 0px;
+    width: 37px;
+    height: 37px;
+    color: #fff;
+    line-height: 35px;
+    text-align: center;
+    margin: 25px 7px;
+    transition: 0.5s all;
+    
+}
+.team_socials ul li a span:hover{
+    border: 1px solid #ff0e83;
+    color: #ff0e83;
+}
+
+.team_item{
+    position: relative;
+}
+.team_pink{
+    /* đè nội dung */
+    position: absolute;
+    left:0;
+    bottom:0;
+    width: 100%;
+    padding: 20px 20px;
+    background-color: #ff0e83;
+    color: white;
+    /* chưa rê chuột */
+     opacity: 1;
+    
+}
+/* đã rê chuột */
+.team_item:hover .team_pink{
+
+    /* sẽ ẩn màu hồng xuống */
+    opacity: 0;
+    transition: all 0.5s;
+    color: white;
+}
+
+.team_black{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    color:white;
+    padding: 100px 30px;
+    opacity: 0;
+    transition: all 0.5s;
+} 
+.team_black h3{
+    color: #ff0e83;
+  
+}
+/* đã rê chuột-  */
+.team_item:hover .team_black{
+    opacity: 1;
+}
+.team_item2{
+    /* phạm vi của con nằm bên ngoài thẻ cha sẽ bị che đi */
+    overflow: hidden;
+}
+/* vị trí khi chưa rê chuột của hình thứ 2 */
+.team_item2 .team_black{
+    opacity: 1;
+    transform: translateX(-100%);
+
+}
+/* đã rê chuột phủ lại thẻ cha- rê từ bên phải qua */
+.team_item2:hover .team_black{
+transform: translateX(0); 
+
+}
+/* hiệu ứng xoay vòng */
+.team_item3 .team_black{
+    opacity: 1;
+    transform: rotate(0deg);
+}
+/* quay 10 vòng */
+.team_item3:hover .team_black{
+transform: rotate(3600deg);
+}
+/* hiệu ứng phóng to, thu nhỏ */
+.team_item4 .team_black{
+    opacity: 1;
+    /* 1.5 nhân vs chiều dài và chiều cao của nó */
+    /* biến mất luôn thì dùng vs 0- còn hiện lại thì dùng số 1 */
+    transform:scale(0) ;
+}
+.team_item4:hover .team_black{
+    transform:scale(1) ;
+}
+/* FEEDBACK */
+.feedback{
+    padding: 70px 0;
+    background-image: url(../img/cc1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.feedback h2{
+    text-align: center;
+    color: #fff;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+.feedback_content{
+    margin: 40px auto;
+    width: 60%;
+    border:5px solid #ff0e83;
+    text-align: center;
+    padding:40px 25px;
+    background: rgba(70, 45, 45, 0.5);
+}
+.item h5{
+    font-size: 15px;
+    color: #fff;
+    letter-spacing: 2px;
+    line-height: 3;
+}
+.fa-quote-left:before {
+    content: "\f10d";
+    color: #2cbeff;
+}
+.fa-quote-right:before {
+        content: "\f10e";
+        color: #2cbeff;
+}
+/* CONTACT */
+.contact h2{
+    padding: 40px;
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+.contact_form form{
+    display: grid;
+    padding: 20px 0;
+    /* chia theo 2 cột */
+    grid-template-columns: repeat(2,1fr);
+    gap: 25px;
+    width: 70%;
+    margin: 0 auto;
+    gap: 25px;
+   
+}
+.contact_form input{
+font-size: 15px;
+padding: 1em;
+border:1px solid black ;
+transition: all 0.5s;
+border-radius: 5px;
+/* nếu thẻ con có font size thì 1em = 15px */
+/* nếu thẻ con không có font size thì sẽ lấy font size của cha */
+}
+.contact_form textarea{
+    /* grid-column: 1/3; */
+    /* bắt đầu đường số 1 chiếm 2 ô */
+    grid-column: 1 / span 2;
+   
+}
+.contact_form button{
+    grid-column: 1/3;
+    grid-column: 1/ span 2;
+    gap: 25px;
+    background-color: #ff0e83;
+    padding: 10px;
+    font-size: 18px;
+}
+ 
+/* xóa đường đen bên ngoài cái vành input  */
+.contact_form input:focus{
+    outline: none;
+    /* đường viền xanh của web */
+    /* box_shadow hình dáng như nào thì cái bóng nó y vậy */
+    /* text shadow nội dung của cái bogns */
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+/* k cho thay đổi kích thước- tắt tính năng resize của textArea */
+.contact_form textarea{
+    resize: none;
+}
+/* Chữ sẽ thay đổi thành màu khác */
+.contact_form textarea::placeholder{
+    color: #4e2a84;
+    font-weight: 700;
+    font-size: 30px;
+}
+.contact_map iframe{
+    width: 100%;
+}
+.youtube iframe{
+    width: 100%;
+}
+.contact_info{
+    width: 100%;
+    padding: 50px;
+    text-align: center;
+}
+.contact_info .info{
+    display: block;
+    width: 33.3%;
+    float: left;
+   line-height: 2;
+}
+.contact_info .info p{
+    font-size: 16px;
+   letter-spacing: 2px;
+}
+.contact_info .info i{
+    color: #4e2a84;
+    font-size: 28px;
+}
+/* Back to top */
+.backToTop{
+    display: block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    border: 3px solid aqua;
+    border-radius: 50%;
+    color: aqua;
+    font-size: 3rem;
+    /* trượt theo người dùng và đẩy qua bên gốc phải */
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    /* muốn ẩn button back to top */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+}
+ /* back-to-top button visible */
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+  }
+  /* Kiểu chuyển động:animation- không cần tác động thành phần đó tự chuyển động luôn */
+  
+  /* khai báo 1 chu kì chuyển động */
+  @keyframes upDown{
+    /* 100% */
+    /* đứng yên */
+    0%{} 
+   /*  */
+    25%{
+        /* đi lên */
+       transform: translateY(-50px) scale(1.1); 
+    }
+    50%{
+        transform: translateY(0) scale(1);
+    }
+    /* đi xuống */
+    75%{
+    transform: translateY(50px) scale(1.1);
+    }
+    100%{
+        transform: translateY(0) scale(1);
+    }
+    /* scale: phóng to thu nhỏ */
+  }
+  
